@@ -5,14 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MediKiosk – AI Patient Intake & Doctor Platform</title>
-  <!-- Google Fonts & Lucide Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- REQUIRED: RecordRTC for Brave/Firefox/Safari Audio Support -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
   <link rel="stylesheet" href="style.css">
 
@@ -50,7 +47,7 @@
       </div>
 
 
-      <!-- Active User Profile Indicator -->
+      <!--user profile-->
       <div class="user-pill" id="user-pill">
         <i data-lucide="user-check" style="width:16px;height:16px;"></i>
         <span id="user-display-name">User</span>
@@ -74,7 +71,7 @@
       </div>
     </section>
 
-    <!-- Lab Login -->
+    <!-- labb login -->
     <section class="view-panel" id="view-lab-login">
       <div class="card" style="max-width:400px; margin:3rem auto;">
         <h3 style="margin-bottom:1rem;">🧪 Lab Staff Login</h3>
@@ -90,7 +87,7 @@
       </div>
     </section>
 
-    <!-- Lab Dashboard -->
+    <!-- lab dashboard -->
     <section class="view-panel" id="view-lab">
       <div class="card" style="max-width:500px; margin:2rem auto;">
         <h3 id="lab-header-name" style="margin-bottom:1rem;"></h3>
@@ -117,7 +114,7 @@
         </div>
       </div>
     </section>
-    <!-- 1. LANDING / ROLE SELECTOR VIEW -->
+    <!--landing view -->
     <section id="view-landing" class="view-panel active">
       <div class="hero">
         <h1>Fast-Track OPD Intake & Multilingual AI Triage</h1>
@@ -163,7 +160,7 @@
       </div>
     </section>
 
-    <!-- 2. PATIENT LOGIN VIEW (OTP BASED) -->
+    <!-- patient login page (otp) -->
     <section id="view-patient-login" class="view-panel">
       <div class="card auth-card">
         <div style="text-align: center; margin-bottom: 1.25rem;">
@@ -177,8 +174,7 @@
 
 
 
-        <!-- STEP: choose identifier + auth method -->
-        <!-- STEP: choose identifier + auth method -->
+    
         <div id="login-select-step">
           <div class="form-group">
             <label>Login With</label>
@@ -205,7 +201,7 @@
             <input type="date" id="login-dob-input" class="input-field" />
           </div>
 
-          <!-- Dynamic Section: Hidden until DOB and Mobile are checked -->
+          <!-- Dynamic Section: hidden jabtak dob and mobile are checked -->
           <button class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" id="login-check-btn"
             onclick="checkUserExistence()">
             Continue <i data-lucide="arrow-right" style="width:16px;"></i>
@@ -255,7 +251,7 @@
           </div>
         </div>
 
-        <!-- STEP: OTP verification for login -->
+        <!-- OTP verification for login -->
         <div id="login-otp-step" style="display:none; animation: fadeIn 0.3s ease;">
           <div
             style="background: var(--warning-light); border: 1px solid var(--warning); border-radius: var(--radius-sm); padding: 0.6rem; margin-bottom: 1rem; font-size: 0.8rem; color: #92400e; display: flex; justify-content: space-between; align-items: center;">
@@ -275,7 +271,7 @@
           </button>
         </div>
 
-        <!-- STEP: mandatory ABHA gate (shown after mobile-number login) -->
+        <!--mandatory ABHA id (shown after mobile-number login) -->
         <div id="abha-mandatory-step" style="display:none; animation: fadeIn 0.3s ease;">
           <div
             style="background:#fef2f2; border:1px solid #fecaca; border-radius:var(--radius-sm); padding:0.75rem; margin-bottom:1.1rem; font-size:0.8rem; color:#7f1d1d; display:flex; gap:0.5rem; align-items:flex-start;">
@@ -293,7 +289,7 @@
           </button>
         </div>
 
-        <!-- STEP: link an existing ABHA ID -->
+        <!-- for link an existing ABHA ID -->
         <div id="abha-link-step" style="display:none; animation: fadeIn 0.3s ease;">
           <div class="form-group">
             <label>ABHA Number or ABHA Address</label>
@@ -323,7 +319,7 @@
           </button>
         </div>
 
-        <!-- STEP: create a new ABHA ID -->
+        <!-- create a new ABHA ID -->
         <div id="abha-create-step" style="display:none; animation: fadeIn 0.3s ease;">
           <div class="form-group">
             <label>Full Name</label>
@@ -376,7 +372,7 @@
           </button>
         </div>
 
-        <!-- STEP: ABHA linked/created confirmation -->
+        <!-- ABHA linked confirmation -->
         <div id="abha-success-step" style="display:none; animation: fadeIn 0.3s ease; text-align:center;">
           <div class="portal-icon" style="background:#dcfce7; color:#16a34a; margin: 0 auto 0.75rem auto;">
             <i data-lucide="check-circle" style="width:28px;height:28px;"></i>
@@ -393,7 +389,7 @@
       </div>
     </section>
 
-    <!-- 3. DOCTOR LOGIN VIEW (PASSWORD BASED) -->
+    <!-- DOCTOR LOGIN paage (password) -->
     <section id="view-doctor-login" class="view-panel">
       <div class="card auth-card">
         <div style="text-align: center; margin-bottom: 1.25rem;">
@@ -426,9 +422,9 @@
       </div>
     </section>
 
-    <!-- 4. PATIENT INTAKE FLOW VIEW -->
+    <!-- PATIENT INTAKE -->
     <section id="view-patient" class="view-panel">
-      <!-- STEP 0: Consultation Type (Fresh vs Follow-up) -->
+      <!-- consultation typ (fresh aur follow-up) -->
       <div id="patient-step-0" class="card" style="display:none;">
         <div id="abha-status-row"
           style="display:flex; justify-content:space-between; align-items:center; background:var(--primary-light); border-radius:var(--radius-sm); padding:0.6rem 0.9rem; margin-bottom:1rem; font-size:0.8rem;">
@@ -489,7 +485,7 @@
           </div>
         </div>
 
-        <!-- Shown only once "Follow-up" is picked -->
+        <!-- shown only once "follow-up" is picked -->
         <div id="followup-history-picker" style="display:none; margin-top:1.25rem;">
           <label
             style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:0.5rem; color:var(--text-muted);">
@@ -497,7 +493,7 @@
           </label>
           <div id="followup-history-list"
             style="display:flex; flex-direction:column; gap:0.5rem; max-height:220px; overflow-y:auto;">
-            <!-- populated dynamically from /api/patient/{id}/consultations -->
+            
           </div>
           <button class="btn btn-primary" style="width:100%; margin-top:1rem;" onclick="proceedToIntake()">
             Continue <i data-lucide="arrow-right" style="width:16px;"></i>
@@ -505,7 +501,7 @@
         </div>
       </div>
 
-      <!-- STEP 1: Personal Details -->
+      <!--personal details -->
       <div id="patient-step-1" class="card">
         <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;">
           <i data-lucide="building-2" style="color:var(--primary);"></i> Step 1: Patient Demographic Details
@@ -554,7 +550,7 @@
         </div>
       </div>
 
-      <!-- STEP 2: Voice & Text Clinical Triage -->
+      <!--voice aur text clinical AI -->
       <div id="patient-step-2" class="card" style="display: none;"
         style="background: var(--bg); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
         <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem; display:flex; align-items:center; gap:0.5rem;">
@@ -576,7 +572,7 @@
               <input type="text" id="chat-input" class="input-field" placeholder="Type or click mic to speak..."
                 onkeypress="if(event.key === 'Enter') sendChatMessage()" />
 
-              <!-- RECORD RTC MIC BUTTON -->
+              <!--MIC BUTTON -->
               <button class="btn btn-secondary" id="mic-btn" onclick="toggleVoiceInput()" title="Record Voice">
                 <i data-lucide="mic" style="color:var(--danger); width:18px;"></i>
               </button>
@@ -593,7 +589,7 @@
         </div>
 
 
-        <!-- Document / OCR Simulation -->
+        <!-- document scan-->
         <div
           style="background: var(--bg); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
           <i data-lucide="file-scan"
@@ -603,16 +599,16 @@
             AI will extract your active medications, vitals, and lab parameters.
           </p>
 
-          <!-- Hidden File/Camera Input -->
+          <!--camera input -->
           <input type="file" id="prescription-file-input" accept="image/*" capture="environment" style="display: none;"
             onchange="handleImageSelection(event)" />
 
-          <!-- Trigger Button -->
+          
           <button class="btn btn-secondary" onclick="document.getElementById('prescription-file-input').click()">
             <i data-lucide="camera" style="width:16px;"></i> Take Photo / Choose Document
           </button>
 
-          <!-- Image Preview & Action Button -->
+          <!-- document view -->
           <div id="image-preview-container" style="display: none; margin-top: 1rem;">
             <img id="image-preview" src="" alt="Prescription Preview"
               style="max-width: 100%; max-height: 220px; border-radius: var(--radius-sm); border: 1px solid var(--border);" />
@@ -623,13 +619,13 @@
             </div>
           </div>
 
-          <!-- Loading Indicator -->
+          <!-- loading -->
           <div id="ocr-loading"
             style="display: none; margin-top: 1rem; color: var(--primary); font-size: 0.85rem; font-weight: 500;">
             ⏳ Analyzing document with Gemini AI... Please wait.
           </div>
 
-          <!-- Dynamic OCR Result Container -->
+          <!-- ocr result -->
           <div id="ocr-results"
             style="display:none; text-align:left; margin-top:1rem; background:white; padding:0.85rem; border-radius:var(--radius-sm); border:1px solid var(--border); font-size:0.8rem;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -647,7 +643,7 @@
           </div>
         </div>
 
-        <!-- AI Recommendation Card -->
+        <!-- AI extraction -->
         <div id="ai-match-card"
           style="display:none; margin-top: 1.5rem; background: var(--primary-light); border: 1px solid var(--primary); border-radius: var(--radius-md); padding: 1rem;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -665,7 +661,7 @@
         </div>
       </div>
 
-      <!-- STEP 3: Token Display -->
+      <!--token display -->
       <div id="patient-step-3" style="display: none;">
         <div class="token-display">
           <p style="font-size: 1rem; opacity: 0.9;">Your OPD Consultation Token</p>
@@ -692,7 +688,7 @@
       </div>
     </section>
 
-    <!-- 5. DOCTOR CONSULTATION DASHBOARD -->
+    <!-- DOCTOR CONSULTATION DASHBOARD -->
     <section id="view-doctor" class="view-panel">
       <div class="card"
         style="padding: 1rem; margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center;">
@@ -732,7 +728,7 @@
       </div>
 
       <div class="doctor-layout">
-        <!-- Live Queue Sidebar -->
+        <!--queue sidebar -->
         <div class="card" style="padding: 1rem;">
           <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; display:flex; justify-content:space-between;">
             <span>Live OPD Queue</span>
@@ -740,13 +736,13 @@
           </h4>
 
           <div class="queue-list" id="dynamic-queue-list">
-            <!-- Dynamically populated from FastAPI -->
+            
           </div>
         </div>
 
-        <!-- Main Clinical Details & Rx Editor -->
+        <!--clinical details -->
         <div>
-          <!-- Red Flag Warning Banner -->
+          <!-- red flag -->
           <div id="ai-alert-banner" class="card"
             style="background: var(--danger-light); border-color: var(--danger); padding: 0.9rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
             <i data-lucide="alert-triangle" style="color: var(--danger);"></i>
@@ -757,7 +753,7 @@
             </div>
           </div>
 
-          <!-- Structured Clinical Intake Card -->
+          <!-- structured clinical intake card -->
           <div class="card">
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
               <div>
@@ -801,7 +797,7 @@
                 <p style="color:var(--text-muted);"><strong>Permanent Chronic Illnesses:</strong></p>
                 <p style="margin-bottom:1rem;" id="doc-p-chronic-list">Type 2 Diabetes, Hypertension</p>
 
-                <!-- NEW: Extracted File Data Section -->
+                <!-- extracted file -->
                 <div
                   style="background: var(--bg); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 0.85rem;">
                   <p
@@ -875,7 +871,7 @@
       </div>
     </section>
 
-    <!-- 5B. PATIENT PAST MEDICAL HISTORY (classified) -->
+    <!-- medical history -->
     <section id="view-patient-history" class="view-panel">
       <div class="card"
         style="padding: 1rem; margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center;">
@@ -929,7 +925,7 @@
       </div>
     </section>
 
-    <!-- 6. REVIEW VIEW -->
+    <!--review-->
     <section id="view-reviews" class="view-panel">
       <div class="grid-2">
         <div class="card">
@@ -968,7 +964,7 @@
 
   </div>
 
-  <!-- On-Demand Image Viewer Modal -->
+  <!-- image view -->
   <div id="image-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" onclick="closePrescriptionImageModal()">&times;</button>
